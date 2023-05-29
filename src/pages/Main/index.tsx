@@ -52,10 +52,8 @@ export const MainPage = () => {
 
   const observer = useRef(
     new IntersectionObserver((entries) => {
-      console.log('const observer');
-      const first = entries[0];
-      if (first.isIntersecting) {
-        setPageNum((no) => no + 1);
+      if (entries[0].isIntersecting) {
+        setPageNum(pageNum + 1);
       }
     })
   );
@@ -129,7 +127,7 @@ export const MainPage = () => {
     register,
     handleSubmit,
     reset,
-    formState: { errors},
+    formState: { errors },
   } = useForm<tUpdateClientData>({
     resolver: zodResolver(UpdateClientSchema),
     mode: 'onChange',
@@ -173,10 +171,15 @@ export const MainPage = () => {
     try {
       await api.post(`/contacts/`, data);
 
-      // const response = await api.get<iPagination>(
-      //   `client/contacts?page=1`
-      // );
-      // setContacts(response.data.data);
+      if (contacts.length == 0) {
+        setTimeout(() => {
+          toggleModalContact();
+        }, 300);
+        setTimeout(() => {
+          navigate('main');
+        }, 500);
+      }
+
       setPageNum(1);
       toast.success('Contact added');
       loadContacts();
@@ -282,7 +285,9 @@ export const MainPage = () => {
                 document={<PDFDocument />}
                 fileName="CONTACTS"
               >
-                {({ loading }) => (loading ? <p>oi</p> : <VscFilePdf />)}
+                {({ loading }) =>
+                  loading ? '' : <VscFilePdf />
+                }
               </PDFDownloadLink>
               <ContactModal
                 isOpen={isOpen2}
@@ -343,6 +348,7 @@ export const MainPage = () => {
                 return i === contacts.length - 1 &&
                   pageNum <= maxPage ? (
                   <div
+                    className="observer"
                     key={`${contact.id}-${i}`}
                     ref={setLastElement}
                   >

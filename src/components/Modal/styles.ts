@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const StyledDiv = styled.div`
   width: 400px;
-  /* height: 300px; */
   min-height: fit-content;
   display: flex;
   flex-direction: column;

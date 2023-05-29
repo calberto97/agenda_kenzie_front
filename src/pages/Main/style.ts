@@ -96,6 +96,9 @@ export const StyledDiv = styled.div`
 
   .no-contacts {
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     text-align: center;
     line-height: 40px;
     margin-left: 16px;
@@ -106,6 +109,7 @@ export const StyledDiv = styled.div`
 
     > svg {
       font-size: 40px;
+      align-self: center;
     }
   }
 
@@ -122,12 +126,17 @@ export const StyledDiv = styled.div`
 
     svg {
       font-size: 30px;
-      color: var();
+      color: var(--ultra-violet);
     }
   }
+
   .right-div > .bottom-bar {
     background-color: var(--pale-dogwood);
     border-radius: 0px 0px 8px 8px;
     padding: 20px;
+  }
+
+  .observer {
+    /* background-color: red; */
   }
 `;

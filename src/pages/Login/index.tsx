@@ -21,10 +21,9 @@ export const LoginPage = () => {
 
     if (token) {
       api.defaults.headers.common.authorization = `Bearer ${token}`;
-      console.log(token)
+      console.log(token);
       navigate('/main');
     }
-
   });
 
   const {
@@ -102,13 +101,7 @@ export const LoginPage = () => {
                   {errors.phoneNumber.message}
                 </small>
               )}
-              {/* <StyledButton
-                type="submit"
-                isDirty={isDirty}
-                isValid={isValid}
-              >
-                Register
-              </StyledButton> */}
+
               <Button
                 text="Register"
                 isDirty={isDirty2}
@@ -142,13 +135,7 @@ export const LoginPage = () => {
                   {errors2.password.message}
                 </small>
               )}
-              {/* <StyledButton
-                type="submit"
-                isDirty={isDirty}
-                isValid={isValid}
-              >
-                Login
-              </StyledButton> */}
+
               <Button
                 text="Login"
                 isDirty={isDirty}

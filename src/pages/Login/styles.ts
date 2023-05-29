@@ -38,7 +38,6 @@ export const StyledDiv = styled.div`
     img {
       width: 90%;
       align-self: center;
-      /* margin-top: -15%; */
     }
   }
 

@@ -52,7 +52,6 @@ export default createGlobalStyle`
   body {
     font-family: 'Inter', sans-serif;
 
-    /* background: var(--rose-quartz); */
     color: var(--space-cadet);
     -webkit-font-smoothing: antialiased;
 
@@ -123,7 +122,6 @@ export default createGlobalStyle`
 }
 
 .Toastify__progress-bar {
-  color: red !important;
   background-color: var(--pale-dogwood);
 }
 

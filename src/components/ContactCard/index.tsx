@@ -32,10 +32,6 @@ export const ContactCard = ({
     try {
       await api.delete(`/contacts/${id}`);
 
-      // const response = await api.get<iPagination>(
-      //   `client/contacts?page=1`
-      // );
-
       setPageNum(1);
       toast.success('Contact deleted');
     } catch (error) {
